@@ -19,6 +19,8 @@ public class RoleDaoImp implements RoleDao {
         entityManager.persist(role);
     }
 
+
+
     @Override
     public void update(Role role) {
         entityManager.merge(role);

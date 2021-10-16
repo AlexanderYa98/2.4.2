@@ -18,11 +18,11 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@EnableTransactionManagement //позволяет использовать TransactionManage для управления транзакциями
+@EnableTransactionManagement
 @PropertySource("classpath:db.properties")
 public class HibernateConfig {
 
-    private final Environment environment; //переменная для получения свойств из файла проперти
+    private final Environment environment;
 
     @Autowired
     public HibernateConfig(Environment environment) {
@@ -67,6 +67,5 @@ public class HibernateConfig {
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
     }
-
 
 }

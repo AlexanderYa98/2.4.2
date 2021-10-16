@@ -34,11 +34,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //http.csrf().disable();
         http.authorizeRequests()
                 .antMatchers("/", "/login", "/logout").permitAll() // доступность всем
-                .antMatchers("/user/**").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-                .antMatchers("/admin/**").access("hasAnyRole('ROLE_ADMIN')")
+                .antMatchers("/user/**").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')") // разрешаем входить на /user пользователям с ролью User, Admin
+                .antMatchers("/admin/**").access("hasAnyRole('ROLE_ADMIN')") // разрешает входить на /admin пользователю с ролью Admin
                 .and()
-                .formLogin()
-                .successHandler(successUserHandler) //
+                .formLogin()  //
+                .successHandler(successUserHandler)
                 .and().logout()
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/login")
@@ -48,7 +48,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-
         return new BCryptPasswordEncoder();
     }
 }

@@ -22,7 +22,7 @@ public class UserController {
 	private final RoleService roleService;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Autowired
+	@Autowired
     public UserController(UserService userService, RoleService roleService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userService = userService;
         this.roleService = roleService;
