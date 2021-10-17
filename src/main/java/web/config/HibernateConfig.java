@@ -68,4 +68,5 @@ public class HibernateConfig {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 
+
 }
